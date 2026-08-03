@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA | Fine Jewelry for Her</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Premium Light Fonts: Playfair for delicate serifs, Inter for Apple-like clean sans-serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Three.js Library for 3D Diamond -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+
+</head>
+<body>
+
+   <!-- Ultra-Premium Cinematic Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <h1 class="loader-logo">AURA</h1>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <p class="loader-status">Curating your experience</p>
+        </div>
+    </div>
+    <!-- Classic High-Fashion Centered Navbar -->
+    <nav class="navbar" id="navbar">
+        
+        <!-- Mobile Toggle -->
+        <div class="menu-toggle" id="mobile-menu-btn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <!-- Left: Shop Links -->
+        <div class="nav-side nav-left" id="nav-links-left">
+            <a href="#collections" class="nav-link">The Collection</a>
+            <a href="#bespoke" class="nav-link">Bespoke</a>
+            <a href="#story" class="nav-link">Heritage</a>
+        </div>
+
+        <!-- Center: Brand Logo -->
+        <div class="nav-center">
+            <a href="#" class="logo-text">AURA</a>
+        </div>
+
+        <!-- Right: Utility Links -->
+        <div class="nav-side nav-right" id="nav-links-right">
+            <a href="#search" class="nav-link">Search</a>
+            <a href="#account" class="nav-link">Account</a>
+            <a href="#cart" class="nav-link">Cart (0)</a>
+        </div>
+        
+    </nav>
+
+    <!-- Apple-Smooth Split Hero Section -->
+    <header class="hero-split">
+        <div class="hero-text-box">
+            <div class="hero-text-content reveal-on-load">
+                <p class="subtitle">Designed for the Modern Woman</p>
+                
+                <h1>Celebrate Your<br><span class="italic-accent">Radiance</span></h1>
+                
+                <p class="description">Delicate, ethically sourced pieces crafted to be worn effortlessly every day. Because true elegance is simply an extension of you.</p>
+                
+                <div class="cta-group">
+                    <a href="#collections" class="btn-primary">Shop the Collection</a>
+                    <a href="#story" class="btn-text">Discover Our Story</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-image-box reveal-on-load" style="transition-delay: 0.4s;">
+            <div class="hero-video-wrapper" id="hero-media">
+                <!-- Soft Light Floating Badge -->
+                <div class="floating-badge">
+                    <p>18k Rose Gold</p>
+                </div>
+                
+                <!-- High-end jewelry video -->
+                <video autoplay loop muted playsinline class="hero-video">
+                    <source src="https://assets.mixkit.co/videos/40602/40602-720.mp4" type="video/mp4">
+                </video>
+                <div class="hero-video-overlay"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- The Curated Pieces -->
+    <section id="collections" class="products-section">
+        <div class="section-header reveal-scroll">
+            <h2 class="section-title">Everyday Brilliance</h2>
+            <p class="section-subtitle">Pieces that transition flawlessly from morning coffee to midnight galas.</p>
+        </div>
+        
+        <div class="product-grid">
+            <div class="product-card reveal-scroll">
+                <div class="img-wrap">
+                    <img src="https://cdn.orra.co.in/media/catalog/product/cache/10238651d5f95594b9023f998383bb67/o/s/osn19027_rg_1_5_copy.jpg" alt="The Solstice Ring">
+                    <div class="quick-view">View Details</div>
+                </div>
+                <div class="card-text">
+                    <h3>The Solstice Ring</h3>
+                    <p class="price">RS.1,250</p>
+                </div>
+            </div>
+
+            <div class="product-card reveal-scroll" style="transition-delay: 0.15s;">
+                <div class="img-wrap">
+                    <img src="https://cdn.orra.co.in/media/catalog/product/cache/10238651d5f95594b9023f998383bb67/b/s/bsn24a10.jpg" alt="Lumière Drops">
+                    <div class="quick-view">View Details</div>
+                </div>
+                <div class="card-text">
+                    <h3>Lumière Pearl Drops</h3>
+                    <p class="price">RS.890</p>
+                </div>
+            </div>
+
+            <div class="product-card reveal-scroll" style="transition-delay: 0.3s;">
+                <div class="img-wrap">
+                    <video autoplay loop muted playsinline class="card-video">
+                        <source src="https://images.orra.co.in/ORG26K54_5.mp4" type="video/mp4">
+                    </video>
+                    <div class="quick-view">View Details</div>
+                </div>
+                <div class="card-text">
+                    <h3>Eternity Diamond Choker</h3>
+                    <p class="price">RS.3,400</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- The Bespoke Experience Section -->
+    <section id="bespoke" class="bespoke-section">
+        <div class="bespoke-container">
+            <!-- Left: Imagery -->
+            <div class="bespoke-image-wrap reveal-scroll">
+                <img src="https://pixabay.com/images/download/pixelalexart-ai-generated-9001186_1920.jpg" alt="Jeweler crafting a bespoke diamond ring">
+                <!-- Floating accent box for depth -->
+                <div class="bespoke-accent-box"></div>
+            </div>
+            
+            <!-- Right: Text Content (Overlapping) -->
+            <div class="bespoke-text-wrap reveal-scroll" style="transition-delay: 0.2s;">
+                <p class="subtitle">Custom Creations</p>
+                <h2>The Bespoke<br><span class="italic-accent">Experience</span></h2>
+                <p class="description">Work directly with our master artisans to bring your dream piece to life. From selecting the perfect ethically-sourced stone to the final hand-polish, your design journey is as unique as the jewelry itself.</p>
+                
+                <ul class="bespoke-features">
+                    <li><span class="check">✧</span> Private Consultations</li>
+                    <li><span class="check">✧</span> GIA Certified Diamonds</li>
+                    <li><span class="check">✧</span> 3D Wax Prototyping</li>
+                </ul>
+                
+                <a href="#contact" class="btn-primary">Start Your Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Luxury Footer -->
+    <footer class="luxury-footer">
+        <div class="footer-container">
+            
+            <!-- Left: Brand & Newsletter -->
+            <div class="footer-brand">
+                <div class="footer-logo">AURA</div>
+                <p class="footer-tagline">Elevating the art of everyday femininity.</p>
+                
+                <form class="newsletter-form" onsubmit="event.preventDefault();">
+                    <label for="email" class="newsletter-label">Become an Insider</label>
+                    <div class="input-group">
+                        <input type="email" id="email" placeholder="Your email address..." required>
+                        <button type="submit">→</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Right: Navigation Columns -->
+            <div class="footer-links-wrapper">
+                <div class="footer-column">
+                    <h4>The Maison</h4>
+                    <ul>
+                        <li><a href="#collections">Our Collection</a></li>
+                        <li><a href="#bespoke">Bespoke Design</a></li>
+                        <li><a href="#story">Our Heritage</a></li>
+                        <li><a href="#journal">The Journal</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Client Care</h4>
+                    <ul>
+                        <li><a href="#contact">Book Consultation</a></li>
+                        <li><a href="#care">Jewelry Care</a></li>
+                        <li><a href="#shipping">Shipping & Returns</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#instagram">Instagram</a></li>
+                        <li><a href="#pinterest">Pinterest</a></li>
+                        <li><a href="#tiktok">TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Bottom: Copyright & Legal -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aura Fine Jewelry. Crafted with intent.</p>
+            <div class="legal-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
