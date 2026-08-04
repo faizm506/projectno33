@@ -77,43 +77,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// 5. Luxury Custom Cursor Logic
-    // Only run this on non-touch devices (desktops/laptops)
-    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-        const interactables = document.querySelectorAll('a, button, .product-card, input');
 
-        // Track Mouse Movement
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-
-            // Dot follows instantly
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-
-            // Outline follows with a slight smooth delay (handled by CSS transition + JS)
-            // Using requestAnimationFrame for ultimate smoothness
-            requestAnimationFrame(() => {
-                cursorOutline.style.left = `${posX}px`;
-                cursorOutline.style.top = `${posY}px`;
-            });
-        });
-
-        // Add magnetic expansion effect when hovering over links/buttons
-        interactables.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursorOutline.classList.add('hovering');
-                cursorDot.classList.add('hovering');
-            });
-            el.addEventListener('mouseleave', () => {
-                cursorOutline.classList.remove('hovering');
-                cursorDot.classList.remove('hovering');
-            });
-        });
-    }
 
     
+// 6. Press Quote Rotator (Ahmedabad Heritage Edition)
+    const quotes = [
+        '"Redefining Ahmedabad\'s rich jewelry heritage with modern, breathtaking elegance." — VOGUE INDIA',
+        '"The new standard for bespoke luxury and generational craftsmanship in Gujarat." — Harper\'s BAZAAR',
+        '"Where traditional Indian artistry meets contemporary, ethical diamond design." — ELLE',
+        '"Ahmedabad\'s crown jewel for flawlessly executed, sustainable fine jewelry." — GQ INDIA'
+    ];
+    
+    let quoteIndex = 0;
+    const quoteElement = document.getElementById('press-quote');
+
+    if (quoteElement) {
+        setInterval(() => {
+            quoteElement.classList.remove('active');
+            
+            setTimeout(() => {
+                quoteIndex = (quoteIndex + 1) % quotes.length;
+                quoteElement.innerText = quotes[quoteIndex];
+                
+                quoteElement.classList.add('active');
+            }, 1000); 
+            
+        }, 5500); // 5.5 seconds gives the user plenty of time to read
+    }
+
+
+    // 7. Frosted Glass Accordion (Care Guide)
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const item = header.parentElement;
+            const content = item.querySelector('.accordion-content');
+            const isActive = item.classList.contains('active');
+
+            // Close all other accordions for a clean, luxury UI
+            document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                otherItem.classList.remove('active');
+                otherItem.querySelector('.accordion-content').style.maxHeight = null;
+            });
+
+            // If the clicked item was NOT active, open it using scrollHeight
+            if (!isActive) {
+                item.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 30 + 'px'; // +30px accounts for the padding
+            }
+        });
+    });
+
 
     
