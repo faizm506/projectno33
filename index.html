@@ -389,26 +389,35 @@
         </div>
     </div>
 
-    <!-- Enhanced Luxury Footer -->
-    <footer class="luxury-footer">
+   <!-- Enhanced Luxury Footer -->
+    <footer class="luxury-footer" id="footer">
+        
+        <!-- Elegant Back to Top Button -->
+        <a href="#navbar" class="back-to-top" aria-label="Scroll to top">
+            <span class="arrow">↑</span>
+            <span class="text">Top</span>
+        </a>
+
         <div class="footer-container">
             
             <!-- Left: Brand & Newsletter -->
-            <div class="footer-brand">
+            <div class="footer-brand reveal-scroll">
                 <div class="footer-logo">Ahmedabad jewellery</div>
-                <p class="footer-tagline">Elevating the art of everyday femininity.</p>
+                <p class="footer-tagline">Elevating the art of everyday femininity. <br><span class="italic-accent" style="font-size: 0.9em; opacity: 0.8;">Proudly crafted in Gujarat.</span></p>
                 
-                <form class="newsletter-form" onsubmit="event.preventDefault();">
+                <form class="newsletter-form" onsubmit="event.preventDefault(); this.classList.add('submitted');">
                     <label for="email" class="newsletter-label">Become an Insider</label>
                     <div class="input-group">
                         <input type="email" id="email" placeholder="Your email address..." required>
                         <button type="submit">→</button>
                     </div>
+                    <!-- Appears magically when they click submit -->
+                    <p class="success-msg">Welcome to the Maison.</p>
                 </form>
             </div>
 
             <!-- Right: Navigation Columns -->
-            <div class="footer-links-wrapper">
+            <div class="footer-links-wrapper reveal-scroll" style="transition-delay: 0.2s;">
                 <div class="footer-column">
                     <h4>The Maison</h4>
                     <ul>
@@ -442,7 +451,7 @@
         </div>
 
         <!-- Bottom: Copyright & Legal -->
-        <div class="footer-bottom">
+        <div class="footer-bottom reveal-scroll" style="transition-delay: 0.3s;">
             <p>&copy; 2026 Ahmedabad jewellery. Crafted with intent.</p>
             <div class="legal-links">
                 <a href="#privacy">Privacy Policy</a>
@@ -450,6 +459,7 @@
             </div>
         </div>
     </footer>
+
     
     <script src="script.js"></script>
 </body>
