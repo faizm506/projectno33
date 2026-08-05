@@ -1,41 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    
-    // 1. Handle Ultra-Premium Preloader (FIXED: No longer gets stuck)
+    /* =========================================
+       1. ULTRA-PREMIUM PRELOADER
+    ========================================= */
     const preloader = document.getElementById('preloader');
     const body = document.body;
     
-    // We use a strict timer now instead of waiting for heavy videos to download.
-    // It will guarantee the preloader disappears after exactly 2.2 seconds.
     setTimeout(() => {
         if (preloader) {
-            // Add 'loaded' class to trigger the curtain slide-up
             preloader.classList.add('loaded');
-            
-            // Restore scrolling immediately as the curtain rises
             body.style.overflowY = 'auto'; 
             body.style.height = 'auto';
 
-            // Trigger the hero section text to slide in *while* the curtain is moving up
             setTimeout(() => {
                 document.querySelectorAll('.reveal-on-load').forEach(el => {
                     el.classList.add('active');
                 });
-            }, 400); // 400ms into the slide-up animation
+            }, 400); 
 
-            // Completely remove the preloader from the DOM after the transition
             setTimeout(() => {
                 preloader.style.display = 'none';
-            }, 1200); // Matches the 1.2s CSS transition time
+            }, 1200); 
         }
-    }, 2200); // Force execution 2.2s after HTML loads
+    }, 2200); 
 
-    // 2. Mobile Menu Toggle
+    /* =========================================
+       2. MOBILE MENU TOGGLE
+    ========================================= */
     const menuBtn = document.getElementById('mobile-menu-btn');
     const navLinksLeft = document.getElementById('nav-links-left');
     const navItems = document.querySelectorAll('.nav-link');
 
-    if(menuBtn) {
+    if (menuBtn && navLinksLeft) {
         menuBtn.addEventListener('click', () => {
             menuBtn.classList.toggle('active');
             navLinksLeft.classList.toggle('active');
@@ -44,14 +40,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     navItems.forEach(item => {
         item.addEventListener('click', () => {
-            if(menuBtn && menuBtn.classList.contains('active')) {
+            if (menuBtn && menuBtn.classList.contains('active')) {
                 menuBtn.classList.remove('active');
                 navLinksLeft.classList.remove('active');
             }
         });
     });
 
-    // 3. Smooth Scroll Reveal (Apple-style glide up)
+    /* =========================================
+       3. SMOOTH SCROLL REVEAL (APPLE-STYLE)
+    ========================================= */
     const scrollElements = document.querySelectorAll('.reveal-scroll');
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -67,20 +65,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
     scrollElements.forEach(el => revealObserver.observe(el));
 
-    // 4. Hero Parallax (Subtle push down on scroll)
+    /* =========================================
+       4. HERO PARALLAX (60FPS SMOOTHED)
+    ========================================= */
     const heroMedia = document.getElementById('hero-media');
+    let ticking = false;
+
     window.addEventListener('scroll', () => {
         let scrollPos = window.scrollY;
-        if(heroMedia && scrollPos < window.innerHeight) {
-            heroMedia.style.transform = `translateY(${scrollPos * 0.08}px)`;
+        
+        // requestAnimationFrame prevents scroll-jittering
+        if (!ticking && heroMedia && scrollPos < window.innerHeight) {
+            window.requestAnimationFrame(() => {
+                heroMedia.style.transform = `translateY(${scrollPos * 0.08}px)`;
+                ticking = false;
+            });
+            ticking = true;
         }
     });
-});
 
+    /* =========================================
+       5. LUXURY CUSTOM CURSOR
+    ========================================= */
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        const interactables = document.querySelectorAll('a, button, .product-card, input, .accordion-header');
 
+        if (cursorDot && cursorOutline) {
+            window.addEventListener('mousemove', (e) => {
+                const posX = e.clientX;
+                const posY = e.clientY;
 
-    
-// 6. Press Quote Rotator (Ahmedabad Heritage Edition)
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+
+                requestAnimationFrame(() => {
+                    cursorOutline.style.left = `${posX}px`;
+                    cursorOutline.style.top = `${posY}px`;
+                });
+            });
+
+            interactables.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursorOutline.classList.add('hovering');
+                    cursorDot.classList.add('hovering');
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursorOutline.classList.remove('hovering');
+                    cursorDot.classList.remove('hovering');
+                });
+            });
+        }
+    }
+
+    /* =========================================
+       6. PRESS QUOTE ROTATOR (AHMEDABAD EDITION)
+    ========================================= */
     const quotes = [
         '"Redefining Ahmedabad\'s rich jewelry heritage with modern, breathtaking elegance." — VOGUE INDIA',
         '"The new standard for bespoke luxury and generational craftsmanship in Gujarat." — Harper\'s BAZAAR',
@@ -98,15 +139,15 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 quoteIndex = (quoteIndex + 1) % quotes.length;
                 quoteElement.innerText = quotes[quoteIndex];
-                
                 quoteElement.classList.add('active');
             }, 1000); 
             
-        }, 5500); // 5.5 seconds gives the user plenty of time to read
+        }, 5500);
     }
 
-
-    // 7. Frosted Glass Accordion (Care Guide)
+    /* =========================================
+       7. FROSTED GLASS ACCORDION (CARE GUIDE)
+    ========================================= */
     const accordionHeaders = document.querySelectorAll('.accordion-header');
 
     accordionHeaders.forEach(header => {
@@ -115,19 +156,50 @@ document.addEventListener("DOMContentLoaded", () => {
             const content = item.querySelector('.accordion-content');
             const isActive = item.classList.contains('active');
 
-            // Close all other accordions for a clean, luxury UI
+            // Close all others
             document.querySelectorAll('.accordion-item').forEach(otherItem => {
                 otherItem.classList.remove('active');
                 otherItem.querySelector('.accordion-content').style.maxHeight = null;
             });
 
-            // If the clicked item was NOT active, open it using scrollHeight
+            // Open clicked
             if (!isActive) {
                 item.classList.add('active');
-                content.style.maxHeight = content.scrollHeight + 30 + 'px'; // +30px accounts for the padding
+                content.style.maxHeight = content.scrollHeight + 30 + 'px';
             }
         });
     });
 
+    /* =========================================
+       8. THE ARTISAN'S BENCH (HORIZONTAL SCROLL)
+    ========================================= */
+    const artisanSection = document.querySelector('.artisan-section');
+    const artisanTrack = document.getElementById('artisan-track');
+    let scrollTicking = false;
 
-    
+    if (artisanSection && artisanTrack) {
+        window.addEventListener('scroll', () => {
+            if (!scrollTicking) {
+                window.requestAnimationFrame(() => {
+                    if (window.innerWidth > 1024) {
+                        const rect = artisanSection.getBoundingClientRect();
+                        const maxScroll = rect.height - window.innerHeight;
+                        
+                        // Prevent division by zero or errors if maxScroll is 0
+                        if (maxScroll > 0) {
+                            let scrollProgress = -rect.top / maxScroll;
+                            scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+                            
+                            artisanTrack.style.transform = `translateX(-${scrollProgress * 75}%)`;
+                        }
+                    } else {
+                        artisanTrack.style.transform = `none`;
+                    }
+                    scrollTicking = false;
+                });
+                scrollTicking = true;
+            }
+        });
+    }
+
+}); // <-- ALL CODE MUST STAY INSIDE THIS CLOSING BRACKET
