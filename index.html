@@ -14,10 +14,6 @@
 </head>
 <body>
 
-    <!-- Luxury Custom Cursor (Required for JS mouse tracking) -->
-    <div class="cursor-dot" data-cursor></div>
-    <div class="cursor-outline" data-cursor></div>
-
    <!-- Ultra-Premium Cinematic Preloader -->
     <div id="preloader">
         <div class="loader-content">
@@ -59,10 +55,12 @@
         
     </nav>
 
-    <!-- Apple-Smooth Split Hero Section -->
+    <!-- Enhanced Apple-Smooth Split Hero Section -->
     <header class="hero-split">
         <div class="hero-text-box">
             <div class="hero-text-content reveal-on-load">
+                <!-- Editorial Accent Line -->
+                <div class="hero-accent-line"></div>
                 <p class="subtitle">Designed for the Modern Woman</p>
                 
                 <h1>Celebrate Your<br><span class="italic-accent">Radiance</span></h1>
@@ -83,67 +81,105 @@
                     <source src="https://assets.mixkit.co/videos/40602/40602-720.mp4" type="video/mp4">
                 </video>
                 <div class="hero-video-overlay"></div>
+                
+                <!-- Luxury Floating Badge -->
+                <div class="floating-badge">
+                    <span class="badge-dot"></span>
+                    <p>Ahmedabad Crafted</p>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- As Seen In (Press Bar) - High Contrast Ahmedabad Edition -->
+    <!-- Enhanced As Seen In (Press Bar) -->
     <section class="press-section reveal-scroll">
-        <div class="press-quote-container">
-            <!-- First quote loaded by default -->
-            <p class="press-quote active" id="press-quote">"Redefining Ahmedabad's rich jewelry heritage with modern, breathtaking elegance." — VOGUE INDIA</p>
-        </div>
-        
-        <div class="press-logos">
-            <span class="press-logo serif" style="font-size: 1.6rem; letter-spacing: 4px;">VOGUE <span style="font-size: 0.8rem; letter-spacing: 2px;">INDIA</span></span>
-            <span class="press-logo serif" style="font-size: 1.3rem; letter-spacing: 1px;">Harper's BAZAAR</span>
-            <span class="press-logo sans" style="font-size: 1.5rem; letter-spacing: 6px; font-weight: 500;">ELLE</span>
-            <span class="press-logo serif" style="font-size: 1.5rem; letter-spacing: 3px;">GQ <span style="font-size: 0.7rem; letter-spacing: 1px;">INDIA</span></span>
+        <div class="press-container">
+            <!-- The Fading Quote -->
+            <div class="press-quote-container">
+                <p class="press-quote active" id="press-quote">"Redefining Ahmedabad's rich jewelry heritage with modern, breathtaking elegance." — VOGUE INDIA</p>
+            </div>
+            
+            <!-- Elegant Fading Divider -->
+            <div class="press-divider"></div>
+            
+            <!-- The Publication Logos -->
+            <div class="press-logos">
+                <span class="press-logo serif" style="font-size: 1.6rem; letter-spacing: 4px;">
+                    VOGUE <span class="logo-sub">INDIA</span>
+                </span>
+                <span class="press-logo serif" style="font-size: 1.3rem; letter-spacing: 1px;">
+                    Harper's BAZAAR
+                </span>
+                <span class="press-logo sans" style="font-size: 1.5rem; letter-spacing: 6px; font-weight: 500;">
+                    ELLE
+                </span>
+                <span class="press-logo serif" style="font-size: 1.5rem; letter-spacing: 3px;">
+                    GQ <span class="logo-sub">INDIA</span>
+                </span>
+            </div>
         </div>
     </section>
 
-    <!-- The Curated Pieces -->
+   <!-- Enhanced Curated Pieces -->
     <section id="collections" class="products-section">
         <div class="section-header reveal-scroll">
+            <p class="subtitle" style="text-align: center; margin-bottom: 1rem;">The Curated Selection</p>
             <h2 class="section-title">Everyday Brilliance</h2>
             <p class="section-subtitle">Pieces that transition flawlessly from morning coffee to midnight galas.</p>
         </div>
         
         <div class="product-grid">
+            <!-- Product 1 -->
             <div class="product-card reveal-scroll">
                 <div class="img-wrap">
-                    <img src="https://cdn.orra.co.in/media/catalog/product/cache/10238651d5f95594b9023f998383bb67/o/s/osn19027_rg_1_5_copy.jpg" alt="The Solstice Ring">
-                    <div class="quick-view">View Details</div>
+                    <span class="product-badge">Bestseller</span>
+                    <!-- Primary Image (Product) -->
+                    <img src="https://cdn.orra.co.in/media/catalog/product/cache/10238651d5f95594b9023f998383bb67/o/s/osn19027_rg_1_5_copy.jpg" alt="The Solstice Ring" class="primary-img">
+                    <!-- Secondary Image (Worn on Model - fades in on hover) -->
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b2548e?q=80&w=800&auto=format&fit=crop" alt="The Solstice Ring Worn" class="secondary-img">
+                    
+                    <button class="quick-view"><span class="icon">+</span> Quick View</button>
                 </div>
                 <div class="card-text">
                     <h3>The Solstice Ring</h3>
-                    <p class="price">RS.1,250</p>
+                    <p class="price">Rs. 1,250</p>
                 </div>
             </div>
 
+            <!-- Product 2 -->
             <div class="product-card reveal-scroll" style="transition-delay: 0.15s;">
                 <div class="img-wrap">
-                    <img src="https://cdn.orra.co.in/media/catalog/product/cache/10238651d5f95594b9023f998383bb67/b/s/bsn24a10.jpg" alt="Lumière Drops">
-                    <div class="quick-view">View Details</div>
+                    <img src="https://cdn.orra.co.in/media/catalog/product/cache/10238651d5f95594b9023f998383bb67/b/s/bsn24a10.jpg" alt="Lumière Drops" class="primary-img">
+                    <!-- Secondary Image -->
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop" alt="Lumière Drops Worn" class="secondary-img">
+                    
+                    <button class="quick-view"><span class="icon">+</span> Quick View</button>
                 </div>
                 <div class="card-text">
                     <h3>Lumière Pearl Drops</h3>
-                    <p class="price">RS.890</p>
+                    <p class="price">Rs. 890</p>
                 </div>
             </div>
 
+            <!-- Product 3 (Video Card) -->
             <div class="product-card reveal-scroll" style="transition-delay: 0.3s;">
                 <div class="img-wrap">
-                    <video autoplay loop muted playsinline class="card-video">
+                    <span class="product-badge">New Arrival</span>
+                    <video autoplay loop muted playsinline class="card-video primary-img">
                         <source src="https://images.orra.co.in/ORG26K54_5.mp4" type="video/mp4">
                     </video>
-                    <div class="quick-view">View Details</div>
+                    <button class="quick-view"><span class="icon">+</span> Quick View</button>
                 </div>
                 <div class="card-text">
                     <h3>Eternity Diamond Choker</h3>
-                    <p class="price">RS.3,400</p>
+                    <p class="price">Rs. 3,400</p>
                 </div>
             </div>
+        </div>
+        
+        <!-- Elegant View All Link -->
+        <div class="view-all-wrap reveal-scroll" style="text-align: center; margin-top: 4rem;">
+            <a href="#shop" class="btn-text">Explore Full Collection</a>
         </div>
     </section>
 
@@ -173,12 +209,28 @@
         </div>
     </section>
     
-    <!-- The Bespoke Experience Section -->
+    <!-- Enhanced Interactive Bespoke Experience Section -->
     <section id="bespoke" class="bespoke-section">
         <div class="bespoke-container">
-            <!-- Left: Imagery -->
+            
+            <!-- Left: Interactive Before & After Slider -->
             <div class="bespoke-image-wrap reveal-scroll">
-                <img src="https://pixabay.com/images/download/pixelalexart-ai-generated-9001186_1920.jpg" alt="Jeweler crafting a bespoke diamond ring">
+                <div class="comparison-slider" id="bespoke-slider">
+                    <!-- "Before" Image (The Sketch/Design) -->
+                    <img src="https://images.unsplash.com/photo-1616422285623-aa42220d5a31?q=80&w=800&auto=format&fit=crop" alt="Jewelry Design Sketch" class="slider-img before-img">
+                    
+                    <!-- "After" Image (The Final Piece) -->
+                    <div class="after-image-container" id="after-image-container">
+                        <img src="https://pixabay.com/images/download/pixelalexart-ai-generated-9001186_1920.jpg" alt="Final Bespoke Diamond Ring" class="slider-img after-img">
+                    </div>
+
+                    <!-- Draggable Luxury Handle -->
+                    <div class="slider-handle" id="slider-handle">
+                        <div class="handle-button">
+                            <span>⟷</span>
+                        </div>
+                    </div>
+                </div>
                 <!-- Floating accent box for depth -->
                 <div class="bespoke-accent-box"></div>
             </div>
@@ -187,18 +239,37 @@
             <div class="bespoke-text-wrap reveal-scroll" style="transition-delay: 0.2s;">
                 <p class="subtitle">Custom Creations</p>
                 <h2>The Bespoke<br><span class="italic-accent">Experience</span></h2>
-                <p class="description">Work directly with our master artisans to bring your dream piece to life. From selecting the perfect ethically-sourced stone to the final hand-polish, your design journey is as unique as the jewelry itself.</p>
+                <p class="description">Slide to witness the transformation. Work directly with our master artisans to bring your dream piece to life. From the first pencil stroke to the final hand-polish, your design journey is as unique as the jewelry itself.</p>
                 
-                <ul class="bespoke-features">
-                    <li><span class="check">✧</span> Private Consultations</li>
-                    <li><span class="check">✧</span> GIA Certified Diamonds</li>
-                    <li><span class="check">✧</span> 3D Wax Prototyping</li>
+                <ul class="bespoke-features interactive-list">
+                    <li>
+                        <span class="check">✦</span> 
+                        <div>
+                            <strong>Private Consultations</strong>
+                            <p>One-on-one sessions in our Ahmedabad atelier.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check">✦</span> 
+                        <div>
+                            <strong>Ethical Sourcing</strong>
+                            <p>GIA Certified, conflict-free natural diamonds.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="check">✦</span> 
+                        <div>
+                            <strong>3D Prototyping</strong>
+                            <p>Try on an exact wax replica before casting in gold.</p>
+                        </div>
+                    </li>
                 </ul>
                 
-                <a href="#contact" class="btn-primary">Start Your Journey</a>
+                <a href="#contact" class="btn-primary bespoke-trigger">Start Your Journey</a>
             </div>
         </div>
     </section>
+
 
     <!-- Enhanced Sticky Split-Screen Care Guide -->
     <section id="care" class="care-section">
@@ -286,28 +357,34 @@
     </section>
 
     <!-- Enhanced High-Fashion Editorial Marquee -->
-    <div class="fashion-ticker">
-        <div class="ticker-track">
-            <div class="ticker-content">
-                <!-- Set 1 -->
-                <span class="ticker-filled">Ethically Sourced</span>
-                <span class="ticker-separator">✦</span>
-                <span class="ticker-stroked">Conflict-Free</span>
-                <span class="ticker-separator">✦</span>
-                <span class="ticker-filled">Master Craftsmanship</span>
-                <span class="ticker-separator">✦</span>
-                <span class="ticker-stroked">Bespoke Design</span>
-                <span class="ticker-separator">✦</span>
+    <div class="fashion-ticker-wrapper reveal-scroll">
+        <div class="fashion-ticker">
+            <div class="ticker-track">
                 
-                <!-- Set 2 (Exact Duplicate for perfect seamless loop) -->
-                <span class="ticker-filled">Ethically Sourced</span>
-                <span class="ticker-separator">✦</span>
-                <span class="ticker-stroked">Conflict-Free</span>
-                <span class="ticker-separator">✦</span>
-                <span class="ticker-filled">Master Craftsmanship</span>
-                <span class="ticker-separator">✦</span>
-                <span class="ticker-stroked">Bespoke Design</span>
-                <span class="ticker-separator">✦</span>
+                <!-- Set 1 -->
+                <div class="ticker-content">
+                    <span class="ticker-filled">Ethically Sourced</span><span class="ticker-separator">✦</span>
+                    <span class="ticker-stroked">Conflict-Free</span><span class="ticker-separator">✦</span>
+                    <span class="ticker-filled">Master Craftsmanship</span><span class="ticker-separator">✦</span>
+                    <span class="ticker-stroked">Bespoke Design</span><span class="ticker-separator">✦</span>
+                </div>
+                
+                <!-- Set 2 (Exact Duplicate) -->
+                <div class="ticker-content" aria-hidden="true">
+                    <span class="ticker-filled">Ethically Sourced</span><span class="ticker-separator">✦</span>
+                    <span class="ticker-stroked">Conflict-Free</span><span class="ticker-separator">✦</span>
+                    <span class="ticker-filled">Master Craftsmanship</span><span class="ticker-separator">✦</span>
+                    <span class="ticker-stroked">Bespoke Design</span><span class="ticker-separator">✦</span>
+                </div>
+
+                <!-- Set 3 (Ensures no blank spaces on massive screens) -->
+                <div class="ticker-content" aria-hidden="true">
+                    <span class="ticker-filled">Ethically Sourced</span><span class="ticker-separator">✦</span>
+                    <span class="ticker-stroked">Conflict-Free</span><span class="ticker-separator">✦</span>
+                    <span class="ticker-filled">Master Craftsmanship</span><span class="ticker-separator">✦</span>
+                    <span class="ticker-stroked">Bespoke Design</span><span class="ticker-separator">✦</span>
+                </div>
+
             </div>
         </div>
     </div>

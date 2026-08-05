@@ -171,35 +171,52 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* =========================================
-       8. THE ARTISAN'S BENCH (HORIZONTAL SCROLL)
+       10. INTERACTIVE BESPOKE SLIDER
     ========================================= */
-    const artisanSection = document.querySelector('.artisan-section');
-    const artisanTrack = document.getElementById('artisan-track');
-    let scrollTicking = false;
+    const bespokeSlider = document.getElementById('bespoke-slider');
+    const afterImageWrap = document.getElementById('after-image-container');
+    const sliderHandle = document.getElementById('slider-handle');
 
-    if (artisanSection && artisanTrack) {
-        window.addEventListener('scroll', () => {
-            if (!scrollTicking) {
-                window.requestAnimationFrame(() => {
-                    if (window.innerWidth > 1024) {
-                        const rect = artisanSection.getBoundingClientRect();
-                        const maxScroll = rect.height - window.innerHeight;
-                        
-                        // Prevent division by zero or errors if maxScroll is 0
-                        if (maxScroll > 0) {
-                            let scrollProgress = -rect.top / maxScroll;
-                            scrollProgress = Math.max(0, Math.min(1, scrollProgress));
-                            
-                            artisanTrack.style.transform = `translateX(-${scrollProgress * 75}%)`;
-                        }
-                    } else {
-                        artisanTrack.style.transform = `none`;
-                    }
-                    scrollTicking = false;
-                });
-                scrollTicking = true;
+    if (bespokeSlider && afterImageWrap && sliderHandle) {
+        let isDragging = false;
+
+        const moveSlider = (clientX) => {
+            const rect = bespokeSlider.getBoundingClientRect();
+            // Calculate mouse position relative to the container
+            let x = clientX - rect.left;
+            
+            // Constrain the slider within the box
+            x = Math.max(0, Math.min(x, rect.width));
+            
+            // Convert to percentage
+            const percentage = (x / rect.width) * 100;
+            
+            // Apply to the image mask and the handle
+            afterImageWrap.style.width = `${percentage}%`;
+            sliderHandle.style.left = `${percentage}%`;
+        };
+
+        // Desktop Mouse Events
+        bespokeSlider.addEventListener('mousedown', () => isDragging = true);
+        window.addEventListener('mouseup', () => isDragging = false);
+        window.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                // Prevent text highlighting while dragging
+                e.preventDefault(); 
+                moveSlider(e.clientX);
             }
         });
+
+        // Mobile Touch Events
+        bespokeSlider.addEventListener('touchstart', () => isDragging = true);
+        window.addEventListener('touchend', () => isDragging = false);
+        window.addEventListener('touchmove', (e) => {
+            if (isDragging) {
+                moveSlider(e.touches[0].clientX);
+            }
+        }, { passive: true });
     }
 
 }); // <-- ALL CODE MUST STAY INSIDE THIS CLOSING BRACKET
+
+
