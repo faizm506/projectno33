@@ -16,43 +16,68 @@
 
    <!-- Ultra-Premium Cinematic Preloader -->
     <div id="preloader">
+        <!-- Ambient breathing glow for depth -->
+        <div class="preloader-ambient"></div>
+        
         <div class="loader-content">
-            <h1 class="loader-logo">Ahmedabad jewellery</h1>
+            <!-- Brand Sparkle Icon -->
+            <span class="loader-icon">✦</span>
+            
+            <!-- Masked Logo Reveal -->
+            <div class="logo-mask">
+                <h1 class="loader-logo">Ahmedabad jewellery</h1>
+            </div>
+            
+            <!-- Advanced Glowing Loading Bar -->
             <div class="loader-line-wrap">
                 <div class="loader-line"></div>
+                <div class="loader-flare"></div>
             </div>
+            
             <p class="loader-status">Curating your experience</p>
         </div>
     </div>
-
-    <!-- Classic High-Fashion Centered Navbar -->
+<!-- Apple-Style Frosted Navigation -->
     <nav class="navbar" id="navbar">
-        
-        <!-- Mobile Toggle -->
-        <div class="menu-toggle" id="mobile-menu-btn">
-            <span class="bar"></span>
-            <span class="bar"></span>
+        <div class="nav-container">
+            <!-- Desktop Left: Shop Links -->
+            <div class="nav-side nav-left">
+                <a href="#collections" class="nav-link">The Collection</a>
+                <a href="#bespoke" class="nav-link">Bespoke</a>
+                <a href="#story" class="nav-link">Heritage</a>
+            </div>
+
+            <!-- Center: Brand Logo -->
+            <div class="nav-center">
+                <a href="#" class="logo-text">Ahmedabad jewellery</a>
+            </div>
+
+            <!-- Desktop Right: Utility Links -->
+            <div class="nav-side nav-right">
+                <a href="#search" class="nav-link">Search</a>
+                <a href="#account" class="nav-link">Account</a>
+                <a href="#cart" class="nav-link">Cart (0)</a>
+            </div>
+
+            <!-- Mobile Toggle (Hamburger) -->
+            <div class="menu-toggle" id="mobile-menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
 
-        <!-- Left: Shop Links -->
-        <div class="nav-side nav-left" id="nav-links-left">
-            <a href="#collections" class="nav-link">The Collection</a>
-            <a href="#bespoke" class="nav-link">Bespoke</a>
-            <a href="#story" class="nav-link">Heritage</a>
+        <!-- Full-Screen Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+            <div class="mobile-nav-links">
+                <a href="#collections" class="mobile-nav-link">The Collection</a>
+                <a href="#bespoke" class="mobile-nav-link">Bespoke</a>
+                <a href="#story" class="mobile-nav-link">Heritage</a>
+                <div class="mobile-divider"></div>
+                <a href="#search" class="mobile-nav-link">Search</a>
+                <a href="#account" class="mobile-nav-link">Account</a>
+                <a href="#cart" class="mobile-nav-link">Cart (0)</a>
+            </div>
         </div>
-
-        <!-- Center: Brand Logo -->
-        <div class="nav-center">
-            <a href="#" class="logo-text">Ahmedabad jewellery</a>
-        </div>
-
-        <!-- Right: Utility Links -->
-        <div class="nav-side nav-right" id="nav-links-right">
-            <a href="#search" class="nav-link">Search</a>
-            <a href="#account" class="nav-link">Account</a>
-            <a href="#cart" class="nav-link">Cart (0)</a>
-        </div>
-        
     </nav>
 
     <!-- Enhanced Apple-Smooth Split Hero Section -->
@@ -133,10 +158,13 @@
             <div class="product-card reveal-scroll">
                 <div class="img-wrap">
                     <span class="product-badge">Bestseller</span>
-                    <!-- Primary Image (Product) -->
                     <img src="https://cdn.orra.co.in/media/catalog/product/cache/10238651d5f95594b9023f998383bb67/o/s/osn19027_rg_1_5_copy.jpg" alt="The Solstice Ring" class="primary-img">
-                    <!-- Secondary Image (Worn on Model - fades in on hover) -->
                     <img src="https://images.unsplash.com/photo-1605100804763-247f67b2548e?q=80&w=800&auto=format&fit=crop" alt="The Solstice Ring Worn" class="secondary-img">
+                    
+                    <!-- NEW: AR Try On Button (Mobile Focused) -->
+                    <button class="ar-try-on-btn" data-product="Solstice Ring">
+                        <span class="ar-icon">⚯</span> Virtual Try-On
+                    </button>
                     
                     <button class="quick-view"><span class="icon">+</span> Quick View</button>
                 </div>
@@ -459,8 +487,52 @@
             </div>
         </div>
     </footer>
+<!-- =========================================
+         THE AR CAMERA OVERLAY INTERFACE
+    ========================================= -->
+    <div class="ar-overlay" id="ar-overlay">
+        <!-- Live Camera Feed -->
+        <video id="ar-video" class="ar-video" autoplay playsinline muted></video>
+        
+        <!-- UI Overlay -->
+        <div class="ar-ui-layer">
+            
+            <!-- Top Bar -->
+            <div class="ar-top-bar">
+                <button class="ar-close-btn" id="ar-close-btn">✕</button>
+                <p class="ar-title">Virtual Try-On</p>
+                <div style="width: 40px;"></div> <!-- Spacer for centering -->
+            </div>
 
-    
+            <!-- Face/Hand Target Guide -->
+            <div class="ar-guide-box">
+                <div class="guide-corners top-left"></div>
+                <div class="guide-corners top-right"></div>
+                <div class="guide-corners bottom-left"></div>
+                <div class="guide-corners bottom-right"></div>
+                <p class="guide-text">Position face within frame</p>
+            </div>
+
+            <!-- Bottom Controls -->
+            <div class="ar-bottom-controls">
+                <div class="ar-product-carousel">
+                    <div class="ar-product-thumb active">
+                        <img src="https://cdn.orra.co.in/media/catalog/product/cache/10238651d5f95594b9023f998383bb67/o/s/osn19027_rg_1_5_copy.jpg" alt="Solstice">
+                    </div>
+                    <div class="ar-product-thumb">
+                        <img src="https://cdn.orra.co.in/media/catalog/product/cache/10238651d5f95594b9023f998383bb67/b/s/bsn24a10.jpg" alt="Lumiere">
+                    </div>
+                </div>
+
+                <!-- Shutter Button -->
+                <button class="ar-shutter-btn" id="ar-shutter-btn">
+                    <div class="shutter-inner"></div>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

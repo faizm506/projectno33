@@ -24,25 +24,45 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }, 2200); 
 
-    /* =========================================
-       2. MOBILE MENU TOGGLE
+   /* =========================================
+       2. APPLE-STYLE NAVBAR & MOBILE MENU
     ========================================= */
+    const navbar = document.getElementById('navbar');
     const menuBtn = document.getElementById('mobile-menu-btn');
-    const navLinksLeft = document.getElementById('nav-links-left');
-    const navItems = document.querySelectorAll('.nav-link');
+    const mobileOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-    if (menuBtn && navLinksLeft) {
+    // 2a. Frosted Glass on Scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // 2b. Mobile Menu Toggle
+    if (menuBtn && mobileOverlay) {
         menuBtn.addEventListener('click', () => {
             menuBtn.classList.toggle('active');
-            navLinksLeft.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            
+            // Prevent scrolling on the body when menu is open
+            if (mobileOverlay.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
         });
     }
 
-    navItems.forEach(item => {
+    // 2c. Close mobile menu when a link is clicked
+    mobileLinks.forEach(item => {
         item.addEventListener('click', () => {
-            if (menuBtn && menuBtn.classList.contains('active')) {
+            if (menuBtn.classList.contains('active')) {
                 menuBtn.classList.remove('active');
-                navLinksLeft.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
             }
         });
     });
@@ -215,6 +235,91 @@ document.addEventListener("DOMContentLoaded", () => {
                 moveSlider(e.touches[0].clientX);
             }
         }, { passive: true });
+    }
+    
+    /* =========================================
+       11. AR VIRTUAL TRY-ON (CAMERA LOGIC)
+    ========================================= */
+    const arButtons = document.querySelectorAll('.ar-try-on-btn');
+    const arOverlay = document.getElementById('ar-overlay');
+    const arCloseBtn = document.getElementById('ar-close-btn');
+    const arVideo = document.getElementById('ar-video');
+    const arShutter = document.getElementById('ar-shutter-btn');
+    let videoStream = null;
+
+    if (arOverlay && arVideo) {
+        
+        // Function to start the camera
+        const startCamera = async () => {
+            try {
+                // Request front-facing camera (ideal for jewelry try-on)
+                videoStream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: 'user' } 
+                });
+                arVideo.srcObject = videoStream;
+                arOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Lock background scrolling
+            } catch (err) {
+                console.error("Camera access denied or unavailable: ", err);
+                alert("Please allow camera access to use the Virtual Try-On feature.");
+            }
+        };
+
+        // Function to stop the camera (Crucial to save user battery)
+        const stopCamera = () => {
+            if (videoStream) {
+                const tracks = videoStream.getTracks();
+                tracks.forEach(track => track.stop());
+            }
+            arVideo.srcObject = null;
+            arOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        };
+
+        // Open AR on button click
+        arButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault(); // Stop page jumping
+                startCamera();
+            });
+        });
+
+        // Close AR
+        if(arCloseBtn) {
+            arCloseBtn.addEventListener('click', stopCamera);
+        }
+
+        // Shutter Button Animation (Simulated Snapshot)
+        if(arShutter) {
+            arShutter.addEventListener('click', () => {
+                // Creates a quick white flash effect
+                const flash = document.createElement('div');
+                flash.style.position = 'absolute';
+                flash.style.inset = '0';
+                flash.style.backgroundColor = 'white';
+                flash.style.zIndex = '100';
+                flash.style.transition = 'opacity 0.4s ease';
+                arOverlay.appendChild(flash);
+
+                setTimeout(() => { flash.style.opacity = '0'; }, 50);
+                setTimeout(() => { flash.remove(); }, 450);
+            });
+        }
+        
+        // Thumbnails switcher interaction
+        const thumbs = document.querySelectorAll('.ar-product-thumb');
+        thumbs.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                thumbs.forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+                
+                // Make the guide corners glow Rose Gold when a product is selected
+                document.querySelectorAll('.guide-corners').forEach(corner => {
+                    corner.style.borderColor = 'var(--accent-color)';
+                    setTimeout(() => { corner.style.borderColor = 'rgba(255,255,255,0.8)'; }, 1000);
+                });
+            });
+        });
     }
 
 }); // <-- ALL CODE MUST STAY INSIDE THIS CLOSING BRACKET
