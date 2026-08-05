@@ -175,7 +175,6 @@ img, video, svg {
 
 .logo-text {
     font-family: var(--font-heading);
-    /* Scaled down slightly to fit "Ahmedabad jewellery" beautifully */
     font-size: clamp(1.2rem, 3vw, 1.8rem);
     letter-spacing: 4px;
     color: var(--text-main);
@@ -184,7 +183,6 @@ img, video, svg {
     white-space: nowrap;
 }
 
-/* Mobile Menu Toggle */
 .menu-toggle {
     display: none; 
     cursor: pointer; 
@@ -732,205 +730,7 @@ img, video, svg {
 }
 
 /* =========================================
-   9. MASTER BULLETPROOF RESPONSIVENESS
-========================================= */
-
-/* Tablet & Small Desktop (max 1024px) */
-@media screen and (max-width: 1024px) {
-    /* Navbar Adjustment */
-    .navbar { 
-        display: flex; 
-        justify-content: space-between; 
-        padding-top: 1.5rem;
-    }
-
-    /* Reflow the Care Section for Tablets & Mobile */
-    .care-split-container {
-        flex-direction: column;
-        gap: 4rem;
-    }
-    
-    .care-visual {
-        position: relative; /* Disables sticky on mobile */
-        top: 0;
-        width: 100%;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-    
-    .care-header {
-        text-align: center;
-    }
-    
-    .care-header .description {
-        margin: 0 auto;
-    }
-    
-    .accordion-content p {
-        padding-left: 0; /* Resets alignment on small screens */
-    }
-    
-    .care-badge {
-        right: -10px; /* Pulls badge in slightly on small screens */
-    }
-    /* Reflow the Unboxing Section for Tablets */
-    .unboxing-video-wrap { 
-        aspect-ratio: 16 / 9; /* Changes to a standard TV shape */
-    }
-    .unboxing-content {
-        position: relative;
-        bottom: 0; right: 0;
-        margin: -50px auto 0 auto; /* Pulls it up slightly over the video */
-        max-width: 90%;
-        text-align: center;
-    }
-    
-    .menu-toggle { display: block; }
-    .nav-right { display: none; } /* Hide utility links for clean mobile look */
-    
-    /* Full Screen Mobile Menu overlay */
-    .nav-left {
-        position: fixed; 
-        top: 0; 
-        left: -100%; 
-        width: 100%; 
-        height: 100vh;
-        background: rgba(252, 250, 248, 0.98); 
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        flex-direction: column; 
-        justify-content: center; 
-        align-items: center;
-        transition: left 0.6s var(--ease-apple); 
-        gap: 3rem;
-        z-index: 999;
-    }
-    
-    .nav-left.active { left: 0; }
-    .nav-left .nav-link { font-size: 1.5rem; opacity: 1; }
-
-    /* Hero Reflow */
-    .hero-split { 
-        flex-direction: column; 
-        padding-top: 120px; 
-    }
-    
-    .hero-text-box { 
-        padding: 2rem 5% 3rem; 
-        text-align: center; 
-        justify-content: center;
-    }
-    
-    .description { margin: 0 auto 3rem auto; }
-    .cta-group { justify-content: center; }
-    
-    .hero-image-box { 
-        padding: 0 5% 4rem; 
-        width: 100%; 
-    }
-    
-    .floating-badge { 
-        left: 50%; 
-        transform: translateX(-50%); 
-        bottom: -20px; 
-        animation: none; /* Disable float animation on mobile to prevent clipping */
-    }
-
-    /* Bespoke Section Overlap Reset */
-    .bespoke-container { flex-direction: column; }
-    
-    .bespoke-image-wrap { width: 100%; }
-    
-    .bespoke-text-wrap {
-        margin-left: 0; 
-        margin-top: -10%; /* Overlap vertically instead of horizontally */
-        padding: 4rem 3rem; 
-        width: 90%; 
-        text-align: center;
-    }
-    
-    .bespoke-features li { justify-content: center; }
-    .bespoke-accent-box { display: none; }
-}
-
-/* Mobile Portrait (max 768px) */
-@media screen and (max-width: 768px) {
-    .footer-container { 
-        flex-direction: column; 
-        gap: 4rem; 
-    }
-    
-    .footer-links-wrapper { 
-        justify-content: flex-start; 
-        gap: 3rem;
-        width: 100%; 
-    }
-    
-    .footer-bottom { 
-        flex-direction: column; 
-        text-align: center; 
-        gap: 2rem;
-    }
-    
-    .legal-links { 
-        justify-content: center; 
-        width: 100%; 
-    }
-    /* Reflow the Unboxing Section for Mobile */
-    .unboxing-video-wrap { 
-        aspect-ratio: 4 / 5; /* Changes to a tall, Instagram-style shape */
-    }
-    .unboxing-content {
-        padding: 3rem 1.5rem;
-    }
-}
-
-/* Small Mobile Devices (max 480px) */
-@media screen and (max-width: 480px) {
-    .cta-group { 
-        flex-direction: column; 
-        gap: 1.5rem; 
-        width: 100%;
-    }
-    
-    .btn-primary { 
-        width: 100%; 
-        text-align: center; 
-    }
-    
-    .footer-links-wrapper { 
-        flex-direction: column; 
-        gap: 2.5rem; 
-        text-align: center; 
-    }
-    
-    .footer-brand { 
-        text-align: center; 
-        margin: 0 auto; 
-    }
-    
-    .input-group { 
-        max-width: 100%; 
-    }
-    
-    .bespoke-text-wrap {
-        width: 95%;
-        padding: 3rem 1.5rem;
-    }
-    
-    /* On very small phones, quick view should be permanently visible as a small button */
-    .quick-view {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
-        bottom: 12px; 
-        padding: 10px 20px; 
-        font-size: 0.7rem;
-    }
-}
-
-
-/* =========================================
-   11. ENHANCED FASHION TICKER (MARQUEE)
+   9. ENHANCED FASHION TICKER (MARQUEE)
 ========================================= */
 .fashion-ticker {
     background-color: var(--text-main);
@@ -941,8 +741,6 @@ img, video, svg {
     align-items: center;
     border-top: 1px solid rgba(214, 163, 156, 0.2);
     border-bottom: 1px solid rgba(214, 163, 156, 0.2);
-    
-    /* Prevents accidental blue highlighting when mobile users swipe with their thumbs */
     user-select: none;
     -webkit-user-select: none;
 }
@@ -957,9 +755,7 @@ img, video, svg {
     display: flex;
     align-items: center;
     gap: clamp(1.5rem, 4vw, 4rem);
-    padding-right: clamp(1.5rem, 4vw, 4rem); /* Must perfectly match the gap */
-    
-    /* Slightly faster animation on mobile ensures it doesn't feel sluggish when the text is smaller */
+    padding-right: clamp(1.5rem, 4vw, 4rem);
     animation: scrollTicker 25s linear infinite; 
 }
 
@@ -982,7 +778,7 @@ img, video, svg {
     text-transform: uppercase;
     letter-spacing: 2px;
     color: transparent;
-    -webkit-text-stroke: 1.5px var(--accent-color); /* Default desktop stroke */
+    -webkit-text-stroke: 1.5px var(--accent-color);
 }
 
 .ticker-separator {
@@ -995,23 +791,8 @@ img, video, svg {
     100% { transform: translateX(-50%); } 
 }
 
-/* --- MOBILE SPECIFIC OVERRIDES FOR MARQUEE --- */
-@media screen and (max-width: 768px) {
-    .ticker-stroked {
-        /* Thins the stroke on mobile so the hollow text remains crisp and readable */
-        -webkit-text-stroke: 1px var(--accent-color); 
-    }
-    
-    .ticker-content {
-        /* Adjust speed for smaller screens so it doesn't feel too slow */
-        animation-duration: 20s;
-    }
-}
-
-
-
 /* =========================================
-   12. THE UNBOXING EXPERIENCE
+   10. THE UNBOXING EXPERIENCE
 ========================================= */
 .unboxing-section {
     padding: clamp(4rem, 8vw, 8rem) 5%;
@@ -1024,14 +805,11 @@ img, video, svg {
     max-width: 1300px;
     width: 100%;
     position: relative;
-    /* Adds a beautiful subtle outline to the whole section */
     border-radius: 20px;
 }
 
-/* The Cinematic Video Frame */
 .unboxing-video-wrap {
     width: 100%;
-    /* 21:9 Aspect Ratio mimics movie theaters */
     aspect-ratio: 21 / 9; 
     overflow: hidden;
     border-radius: 16px;
@@ -1047,7 +825,7 @@ img, video, svg {
 }
 
 .unboxing-video-wrap:hover .unboxing-video {
-    transform: scale(1.03); /* Slow, expensive zoom effect */
+    transform: scale(1.03);
 }
 
 .unboxing-overlay {
@@ -1057,11 +835,10 @@ img, video, svg {
     pointer-events: none;
 }
 
-/* The Overlapping Text Card */
 .unboxing-content {
     position: absolute;
-    bottom: -40px; /* Pulls it down outside the video frame */
-    right: 5%;     /* Locks it to the right side */
+    bottom: -40px; 
+    right: 5%;     
     background: rgba(252, 250, 248, 0.95);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -1086,17 +863,15 @@ img, video, svg {
 }
 
 /* =========================================
-   13. AS SEEN IN (PRESS BAR) - HIGH CONTRAST
+   11. AS SEEN IN (PRESS BAR) - HIGH CONTRAST
 ========================================= */
 .press-section {
     padding: clamp(3.5rem, 6vw, 5rem) 5%;
-    /* Changing the background to dark Espresso to fix the "too light" issue */
     background-color: var(--text-main); 
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Soft rose gold top/bottom borders for a premium finish */
     border-top: 1px solid rgba(214, 163, 156, 0.15);
     border-bottom: 1px solid rgba(214, 163, 156, 0.15);
 }
@@ -1114,16 +889,13 @@ img, video, svg {
     font-family: var(--font-heading);
     font-size: clamp(1.3rem, 3.5vw, 2rem);
     font-style: italic;
-    /* Soft white text for high readability against the dark background */
     color: var(--bg-main); 
     opacity: 0;
     transition: opacity 1s var(--ease-apple);
     line-height: 1.4;
 }
 
-.press-quote.active { 
-    opacity: 1; 
-}
+.press-quote.active { opacity: 1; }
 
 .press-logos {
     display: flex;
@@ -1135,7 +907,6 @@ img, video, svg {
 }
 
 .press-logo {
-    /* Made the logos much more visible */
     color: var(--bg-main);
     opacity: 0.45; 
     transition: opacity 0.4s ease, color 0.4s ease, transform 0.4s var(--ease-apple);
@@ -1146,7 +917,6 @@ img, video, svg {
     gap: 5px;
 }
 
-/* Lights up Rose Gold when hovered */
 .press-logo:hover {
     opacity: 1;
     color: var(--accent-color);
@@ -1156,13 +926,12 @@ img, video, svg {
 .press-logo.serif { font-family: var(--font-heading); }
 .press-logo.sans { font-family: var(--font-body); }
 
-
 /* =========================================
-   14. THE CARE GUIDE (STICKY SPLIT-SCREEN)
+   12. THE CARE GUIDE (STICKY SPLIT-SCREEN)
 ========================================= */
 .care-section {
     padding: clamp(6rem, 12vw, 10rem) 5%;
-    background-color: var(--bg-secondary); /* Soft Blush */
+    background-color: var(--bg-secondary);
     display: flex;
     justify-content: center;
 }
@@ -1175,11 +944,10 @@ img, video, svg {
     gap: clamp(4rem, 8vw, 8rem);
 }
 
-/* Left Column: Sticky Image */
 .care-visual {
     flex: 1;
     position: sticky;
-    top: 120px; /* Stays fixed 120px from the top of the screen */
+    top: 120px;
 }
 
 .care-image-wrap {
@@ -1201,7 +969,6 @@ img, video, svg {
     transform: scale(1.05);
 }
 
-/* Floating Luxury Badge on the image */
 /* --- BULLETPROOF SPINNING SVG BADGE --- */
 .care-badge {
     position: absolute;
@@ -1231,7 +998,6 @@ img, video, svg {
 .spinning-text {
     width: 100%;
     height: 100%;
-    /* will-change tells the browser to use hardware acceleration for a perfect spin */
     will-change: transform; 
     animation: smoothSpin 15s linear infinite;
     color: var(--text-main);
@@ -1251,27 +1017,6 @@ img, video, svg {
     100% { transform: rotate(360deg); }
 }
 
-.care-badge p {
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 500;
-    line-height: 1.4;
-    color: var(--text-main);
-    /* Counter-rotate text so it stays upright while the badge spins */
-    animation: counterSpin 15s linear infinite;
-}
-
-.badge-icon {
-    color: var(--accent-color);
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    animation: counterSpin 15s linear infinite;
-}
-
-
-
-/* Right Column: Text & Accordion */
 .care-content {
     flex: 1.2;
     padding-top: 2rem;
@@ -1296,7 +1041,6 @@ img, video, svg {
     max-width: 90%;
 }
 
-/* Frosted Accordion Styling */
 .accordion-wrapper {
     display: flex;
     flex-direction: column;
@@ -1305,7 +1049,7 @@ img, video, svg {
 
 .accordion-item {
     background: transparent;
-    border-bottom: 1px solid rgba(214, 163, 156, 0.3); /* Rose Gold Divider */
+    border-bottom: 1px solid rgba(214, 163, 156, 0.3); 
     overflow: hidden;
 }
 
@@ -1332,7 +1076,6 @@ img, video, svg {
     gap: 1.5rem;
 }
 
-/* The elegant numbering (01, 02...) */
 .acc-num {
     font-family: var(--font-heading);
     font-size: 0.9rem;
@@ -1340,7 +1083,6 @@ img, video, svg {
     font-style: italic;
 }
 
-/* The expanding animation */
 .accordion-content {
     max-height: 0;
     overflow: hidden;
@@ -1348,14 +1090,8 @@ img, video, svg {
     padding: 0;
 }
 
-/* State changes when active (opened) */
-.accordion-item.active .accordion-header {
-    color: var(--accent-dark);
-}
-
-.accordion-item.active .accordion-content {
-    padding-bottom: 2rem;
-}
+.accordion-item.active .accordion-header { color: var(--accent-dark); }
+.accordion-item.active .accordion-content { padding-bottom: 2rem; }
 
 .accordion-icon {
     font-size: 1.5rem;
@@ -1364,15 +1100,125 @@ img, video, svg {
     transition: transform 0.5s var(--ease-apple);
 }
 
-.accordion-item.active .accordion-icon {
-    transform: rotate(45deg);
-}
+.accordion-item.active .accordion-icon { transform: rotate(45deg); }
 
 .accordion-content p {
     font-size: 0.95rem;
     color: var(--text-light);
     line-height: 1.8;
-    padding-left: 3rem; /* Aligns text with the title, pushing past the numbers */
+    padding-left: 3rem; 
 }
 
 
+/* =========================================
+   13. MASTER BULLETPROOF RESPONSIVENESS
+   (ALL MEDIA QUERIES MUST STAY AT THE BOTTOM)
+========================================= */
+
+/* Tablet & Small Desktop (max 1024px) */
+@media screen and (max-width: 1024px) {
+    /* Navbar Adjustment */
+    .navbar { 
+        display: flex; 
+        justify-content: space-between; 
+        padding-top: 1.5rem;
+    }
+    
+    .menu-toggle { display: block; }
+    .nav-right { display: none; }
+    
+    .nav-left {
+        position: fixed; 
+        top: 0; 
+        left: -100%; 
+        width: 100%; 
+        height: 100vh;
+        background: rgba(252, 250, 248, 0.98); 
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center;
+        transition: left 0.6s var(--ease-apple); 
+        gap: 3rem;
+        z-index: 999;
+    }
+    
+    .nav-left.active { left: 0; }
+    .nav-left .nav-link { font-size: 1.5rem; opacity: 1; }
+
+    /* Hero Reflow */
+    .hero-split { flex-direction: column; padding-top: 120px; }
+    .hero-text-box { padding: 2rem 5% 3rem; text-align: center; justify-content: center; }
+    .description { margin: 0 auto 3rem auto; }
+    .cta-group { justify-content: center; }
+    .hero-image-box { padding: 0 5% 4rem; width: 100%; }
+    .floating-badge { left: 50%; transform: translateX(-50%); bottom: -20px; animation: none; }
+
+    /* Bespoke Section Overlap Reset */
+    .bespoke-container { flex-direction: column; }
+    .bespoke-image-wrap { width: 100%; }
+    .bespoke-text-wrap {
+        margin-left: 0; margin-top: -10%; 
+        padding: 4rem 3rem; width: 90%; text-align: center;
+    }
+    .bespoke-features li { justify-content: center; }
+    .bespoke-accent-box { display: none; }
+
+    /* Care Guide Reflow */
+    .care-split-container { flex-direction: column; gap: 4rem; }
+    .care-visual {
+        position: relative; /* Disables sticky on mobile */
+        top: 0; width: 100%; max-width: 500px; margin: 0 auto;
+    }
+    .care-header { text-align: center; }
+    .care-header .description { margin: 0 auto; }
+    .accordion-content p { padding-left: 0; }
+    .care-badge { right: -10px; }
+
+    /* Unboxing Reflow */
+    .unboxing-video-wrap { aspect-ratio: 16 / 9; }
+    .unboxing-content {
+        position: relative; bottom: 0; right: 0;
+        margin: -50px auto 0 auto; 
+        max-width: 90%; text-align: center;
+    }
+}
+
+/* Mobile Portrait (max 768px) */
+@media screen and (max-width: 768px) {
+    /* Footer */
+    .footer-container { flex-direction: column; gap: 4rem; }
+    .footer-links-wrapper { justify-content: flex-start; gap: 3rem; width: 100%; }
+    .footer-bottom { flex-direction: column; text-align: center; gap: 2rem; }
+    .legal-links { justify-content: center; width: 100%; }
+
+    /* Unboxing Reflow */
+    .unboxing-video-wrap { aspect-ratio: 4 / 5; }
+    .unboxing-content { padding: 3rem 1.5rem; }
+
+    /* Marquee Tweaks */
+    .ticker-stroked { -webkit-text-stroke: 1px var(--accent-color); }
+    .ticker-content { animation-duration: 20s; }
+}
+
+/* Small Mobile Devices (max 480px) */
+@media screen and (max-width: 480px) {
+    /* Form & Buttons */
+    .cta-group { flex-direction: column; gap: 1.5rem; width: 100%; }
+    .btn-primary { width: 100%; text-align: center; }
+    .input-group { max-width: 100%; }
+
+    /* Footer tweaks */
+    .footer-links-wrapper { flex-direction: column; gap: 2.5rem; text-align: center; }
+    .footer-brand { text-align: center; margin: 0 auto; }
+    
+    /* Layout tweaks */
+    .bespoke-text-wrap { width: 95%; padding: 3rem 1.5rem; }
+    
+    /* Quick View button constantly visible on touch devices */
+    .quick-view {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1; bottom: 12px; padding: 10px 20px; font-size: 0.7rem;
+    }
+}
